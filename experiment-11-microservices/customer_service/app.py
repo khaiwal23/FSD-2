@@ -15,9 +15,18 @@ customers = [
 # Fetch customer orders from Order Service
 @app.route('/customers/<int:customer_id>/orders', methods=['GET'])
 def get_customer_orders(customer_id):
+try:
     response = requests.get(f'https://order-service-hpiu.onrender.com/orders/{customer_id}')
+    orders = response.json()
+except Exception as e:
+    return jsonify({"error": "Order service not available", "details": str(e)})
+
+return jsonify({
+    "customer_id": customer_id,
+    "orders": orders
+})
     
-    return jsonify({
+return jsonify({
         "customer_id": customer_id,
         "orders": response.json()
     })
