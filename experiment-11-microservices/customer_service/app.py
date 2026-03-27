@@ -3,6 +3,9 @@ import requests
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Customer Service is Running 🚀"
 # In-memory customers
 customers = [
     {"id": 101, "name": "Himanshu"},
