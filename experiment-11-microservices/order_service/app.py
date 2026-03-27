@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Order Service is Running 🚀"
+
 # In-memory order data
 orders = [
     {"id": 1, "customer_id": 101, "item": "Laptop", "status": "Pending"},
