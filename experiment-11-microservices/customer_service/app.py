@@ -15,7 +15,7 @@ customers = [
 # Fetch customer orders from Order Service
 @app.route('/customers/<int:customer_id>/orders', methods=['GET'])
 def get_customer_orders(customer_id):
-    response = requests.get(f'http://127.0.0.1:5001/orders/{customer_id}')
+    response = requests.get(f'https://order-service-hpiu.onrender.com/orders/{customer_id}')
     
     return jsonify({
         "customer_id": customer_id,
