@@ -19,13 +19,13 @@ jobs:
 
       - name: Run Backend Server
         run: |
-          cd Experiment-16/backend
+          cd backend
           python app.py &
           sleep 5
 
       - name: Run Backend Tests
         run: |
-          cd Experiment-16/backend
+          cd backend
           pytest
 
       - name: Setup Node
