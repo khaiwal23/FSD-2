@@ -17,8 +17,16 @@ jobs:
       - name: Install Backend Dependencies
         run: pip install flask pytest requests
 
+      - name: Run Backend Server
+        run: |
+          cd Experiment-16/backend
+          python app.py &
+          sleep 5
+
       - name: Run Backend Tests
-        run: pytest Experiment-16/backend/
+        run: |
+          cd Experiment-16/backend
+          pytest
 
       - name: Setup Node
         uses: actions/setup-node@v3
